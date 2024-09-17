@@ -1,7 +1,7 @@
 // Copyright 2015-2020 Olaf Frohn https://github.com/ofrohn, see LICENSE
 !(function() {
 var Celestial = {
-  version: '0.7.35',
+  version: '0.8.1',
   container: null,
   data: []
 };
@@ -76,7 +76,7 @@ Celestial.display = function(config) {
   if (canvas[0].length === 0) canvas = d3.select(parentElement).append("canvas");
   //canvas.attr("width", width).attr("height", height);
   canvas.style("width", px(canvaswidth)).style("height", px(canvasheight)).attr("width", canvaswidth * pixelRatio).attr("height", canvasheight * pixelRatio);
-  var context = canvas.node().getContext("2d", cfg.canvasContextAttributes);  
+  var context = canvas.node().getContext("2d", config.canvasContextAttributes);  
   context.setTransform(pixelRatio,0,0,pixelRatio,0,0);
 
   var graticule = d3.geo.graticule().minorStep([15,10]);
