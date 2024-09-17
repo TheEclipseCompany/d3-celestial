@@ -1,6 +1,6 @@
 {
   "name": "@theeclipsecompany/d3-celestial",
-  "version": "0.8.1",
+  "version": "0.7.35",
   "description": "A star map with D3.js",
   "main": "celestial.js",
   "directories": {
