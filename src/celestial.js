@@ -75,7 +75,7 @@ Celestial.display = function(config) {
   if (canvas[0].length === 0) canvas = d3.select(parentElement).append("canvas");
   //canvas.attr("width", width).attr("height", height);
   canvas.style("width", px(canvaswidth)).style("height", px(canvasheight)).attr("width", canvaswidth * pixelRatio).attr("height", canvasheight * pixelRatio);
-  var context = canvas.node().getContext("2d");  
+  var context = canvas.node().getContext("2d", cfg.canvasContextAttributes);  
   context.setTransform(pixelRatio,0,0,pixelRatio,0,0);
 
   var graticule = d3.geo.graticule().minorStep([15,10]);

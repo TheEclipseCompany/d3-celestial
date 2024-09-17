@@ -159,6 +159,7 @@ var settings = {
     nameStyle: { fill: "#cccccc", font: "14px 'Lucida Sans Unicode', 'DejaVu Sans', sans-serif", align: "right", baseline: "top" },
     namesType: "en"  // Language in which the name is displayed, options desig, ar, cn, en, fr, de, gr, il, in, it, jp, lat, ru, es
   },
+  canvasContextAttributes: {},
   set: function(cfg) {  // Override defaults with values of cfg
     var prop, key, config = {}, res = {};
     if (Object.entries(globalConfig).length === 0) Object.assign(config, this);
