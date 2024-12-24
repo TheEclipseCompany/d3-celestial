@@ -2535,7 +2535,7 @@ function form(cfg) {
   col.append("input").attr("type", "checkbox").attr("id", "stars-show").property("checked", config.stars.show).on("change", apply);
   
   col.append("label").attr("for", "stars-limit").html("down to magnitude");
-  col.append("input").attr("type", "number").attr("id", "stars-limit").attr("title", "Star display limit (magnitude)").attr("value", config.stars.limit).attr("max", "6").attr("min", "-1").attr("step", "0.1").on("change", apply);
+  col.append("input").attr("type", "number").attr("id", "stars-limit").attr("title", "Star display limit (magnitude)").attr("value", config.stars.limit).attr("max", "14").attr("min", "-1").attr("step", "0.1").on("change", apply);
   
   col.append("label").attr("for", "stars-colors").html("with spectral colors");
   col.append("input").attr("type", "checkbox").attr("id", "stars-colors").property("checked", config.stars.colors).on("change", apply);
@@ -4617,7 +4617,10 @@ function exportSVG(fname) {
        .attr("d", map);
       styles.gridLines = svgStyle(cfg.lines.graticule);
     } else {
-      Celestial.graticule(groups.gridLines, map, cfg.transform);
+      groups.gridLines.append("path").datum(graticule)
+       .attr("class", "gridLines")
+       .attr("d", map);
+      // Celestial.graticule(groups.gridLines, map, cfg.transform);
       styles.gridLines = svgStyle(cfg.lines.graticule);
     }
     if (has(cfg.lines.graticule, "lon") && cfg.lines.graticule.lon.pos.length > 0) {

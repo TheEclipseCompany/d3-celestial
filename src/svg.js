@@ -54,7 +54,10 @@ function exportSVG(fname) {
        .attr("d", map);
       styles.gridLines = svgStyle(cfg.lines.graticule);
     } else {
-      Celestial.graticule(groups.gridLines, map, cfg.transform);
+      groups.gridLines.append("path").datum(graticule)
+       .attr("class", "gridLines")
+       .attr("d", map);
+      // Celestial.graticule(groups.gridLines, map, cfg.transform);
       styles.gridLines = svgStyle(cfg.lines.graticule);
     }
     if (has(cfg.lines.graticule, "lon") && cfg.lines.graticule.lon.pos.length > 0) {
